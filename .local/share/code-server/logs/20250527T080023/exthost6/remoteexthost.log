@@ -1,0 +1,26 @@
+2025-05-27 05:11:42.269 [info] Extension host with pid 48006 started
+2025-05-27 05:11:42.269 [error] Error: EEXIST: file already exists, open '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock'
+2025-05-27 05:11:42.269 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-27 05:11:42.272 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': The lock does not look stale, elapsed: 107 ms, giving up.
+2025-05-27 05:11:42.278 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': Lock acquired.
+2025-05-27 05:11:42.783 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-27 05:11:43.195 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-27 05:11:43.195 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-27 05:11:43.715 [info] Eager extensions activated
+2025-05-27 05:11:43.715 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-27 05:11:43.716 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-27 05:11:43.849 [warning] [Decorations] CAPPING events from decorations provider vscode.git 3639
+2025-05-27 05:11:44.540 [warning] [Decorations] CAPPING events from decorations provider vscode.git 3639
+2025-05-27 05:11:44.561 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-05-27 05:12:10.855 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'
+2025-05-27 05:12:18.480 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-05-27 05:12:18.480 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-05-27 05:12:18.480 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:json'
+2025-05-27 05:12:26.995 [warning] [Decorations] CAPPING events from decorations provider vscode.git 3642
+2025-05-27 05:12:27.684 [warning] [Decorations] CAPPING events from decorations provider vscode.git 3642
+2025-05-27 05:12:46.508 [warning] [Decorations] CAPPING events from decorations provider vscode.git 3642
+2025-05-27 05:59:53.333 [error] Error: read ETIMEDOUT
+	at TCP.onStreamRead (node:internal/stream_base_commons:218:20)
+2025-05-27 06:05:31.683 [info] Extension host terminating: renderer disconnected for too long (2)
+2025-05-27 06:05:31.685 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-05-27 06:05:31.722 [info] Extension host with pid 48006 exiting with code 0

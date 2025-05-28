@@ -1,0 +1,67 @@
+2025-05-28 04:54:47.027 [info] Extension host with pid 72081 started
+2025-05-28 04:54:47.027 [error] Error: EEXIST: file already exists, open '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock'
+2025-05-28 04:54:47.027 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-28 04:54:47.027 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': The lock does not look stale, elapsed: 579 ms, giving up.
+2025-05-28 04:54:47.031 [error] Error: EEXIST: file already exists, open '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock'
+2025-05-28 04:54:47.032 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-28 04:54:47.032 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': The lock does not look stale, elapsed: 611 ms, giving up.
+2025-05-28 04:54:47.033 [error] Error: EEXIST: file already exists, open '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-2/vscode.lock'
+2025-05-28 04:54:47.033 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-2/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-28 04:54:47.033 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-2/vscode.lock': The lock does not look stale, elapsed: 466 ms, giving up.
+2025-05-28 04:54:47.035 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-3/vscode.lock': Lock acquired.
+2025-05-28 04:54:47.551 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-28 04:54:47.875 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-28 04:54:47.876 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-28 04:54:48.310 [info] Eager extensions activated
+2025-05-28 04:54:48.310 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-28 04:54:48.311 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-28 04:54:48.535 [warning] [Decorations] CAPPING events from decorations provider vscode.git 2671
+2025-05-28 04:54:48.580 [warning] [Decorations] CAPPING events from decorations provider vscode.git 2671
+2025-05-28 04:54:48.989 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-05-28 04:54:49.019 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-05-28 04:55:16.618 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'
+2025-05-28 04:55:23.744 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-05-28 04:55:23.744 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-05-28 04:55:23.745 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:json'
+2025-05-28 04:56:18.672 [warning] [Decorations] CAPPING events from decorations provider vscode.git 2756
+2025-05-28 04:56:34.543 [warning] [Decorations] CAPPING events from decorations provider vscode.git 2756
+2025-05-28 04:57:49.728 [error] Error: Git error
+	at ChildProcess.<anonymous> (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:601154)
+	at ChildProcess.emit (node:events:536:35)
+	at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+2025-05-28 04:57:49.808 [error] Error: Failed to execute git
+	at t.Git._exec (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:463947)
+	at async t.Git.exec (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:463066)
+	at async z.exec (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:468740)
+	at async z.getRemotesGit (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:491649)
+	at async z.getRemotes (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:491381)
+	at async Promise.all (index 1)
+	at async O._updateModelState (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:603034)
+	at async O.updateModelState (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:602859)
+	at async O.run (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:602067)
+	at async O.status (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:582267)
+2025-05-28 04:57:50.729 [error] Error: Git error
+	at ChildProcess.<anonymous> (/usr/lib/code-server/lib/vscode/extensions/git/dist/main.js:2:601154)
+	at ChildProcess.emit (node:events:536:35)
+	at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+2025-05-28 04:57:53.362 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 04:57:54.300 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 04:59:25.137 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 04:59:30.241 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 04:59:35.358 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 04:59:36.318 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 04:59:42.050 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 04:59:47.160 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 04:59:52.279 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 04:59:57.400 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 05:00:02.522 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 05:00:07.638 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 05:00:12.755 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 05:00:17.873 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 05:00:22.984 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 05:00:28.051 [warning] [Decorations] CAPPING events from decorations provider vscode.git 6358
+2025-05-28 05:06:18.592 [info] ExtensionService#_doActivateExtension ms-vscode.js-debug, startup: false, activationEvent: 'onDebugInitialConfigurations'
+2025-05-28 05:06:19.423 [info] ExtensionService#_doActivateExtension vscode.debug-server-ready, startup: false, activationEvent: 'onDebugResolve'
+2025-05-28 05:06:20.203 [info] Extension host terminating: received terminate message from renderer
+2025-05-28 05:06:20.203 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-3/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-05-28 05:06:20.241 [info] Extension host with pid 72081 exiting with code 0

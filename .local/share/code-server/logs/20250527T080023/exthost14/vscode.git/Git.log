@@ -1,0 +1,52 @@
+2025-05-28 05:06:43.830 [info] [main] Log level: Info
+2025-05-28 05:06:43.830 [info] [main] Validating found git in: "git"
+2025-05-28 05:06:43.830 [info] [main] Using git "2.34.1" from "git"
+2025-05-28 05:06:43.830 [info] [Model][doInitialScan] Initial repository scan started
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [0ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [0ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] > git rev-parse --show-toplevel [0ms]
+2025-05-28 05:06:43.830 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-28 05:06:43.830 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-05-28 05:07:10.211 [info] > git init -b main [2ms]
+2025-05-28 05:07:10.214 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-28 05:07:10.218 [info] > git rev-parse --git-dir --git-common-dir [1ms]
+2025-05-28 05:07:10.228 [info] [Model][openRepository] Opened repository (path): /home/ubuntu
+2025-05-28 05:07:10.228 [info] [Model][openRepository] Opened repository (real path): /home/ubuntu
+2025-05-28 05:07:10.239 [info] [Git][getRemotes] No remotes found in the git config file
+2025-05-28 05:07:10.239 [info] > git config --get commit.template [4ms]
+2025-05-28 05:07:10.240 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2025-05-28 05:07:10.240 [warning] [Git][getBranch] No such branch: main
+2025-05-28 05:07:10.246 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [1ms]
+2025-05-28 05:07:10.273 [info] > git status -z -uall [29ms]

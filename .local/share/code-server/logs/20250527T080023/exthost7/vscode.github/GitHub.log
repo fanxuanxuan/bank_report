@@ -1,0 +1,2 @@
+2025-05-27 05:23:20.233 [info] Log level: Info
+2025-05-27 05:23:25.278 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for fanxuanxuan/bank_report/eaf7612870019a6a62ddd9be104cb0a69ee8c54c: TypeError: Cannot read properties of null (reading 'author')

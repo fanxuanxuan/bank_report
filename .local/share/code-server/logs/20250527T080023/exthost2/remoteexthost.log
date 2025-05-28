@@ -1,0 +1,67 @@
+2025-05-27 04:16:35.689 [info] Extension host with pid 16556 started
+2025-05-27 04:16:35.689 [error] Error: EEXIST: file already exists, open '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock'
+2025-05-27 04:16:35.689 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-27 04:16:35.692 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': The lock does not look stale, elapsed: 317 ms, giving up.
+2025-05-27 04:16:35.699 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': Lock acquired.
+2025-05-27 04:16:36.097 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-27 04:16:36.410 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-27 04:16:36.410 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-27 04:16:36.859 [info] Eager extensions activated
+2025-05-27 04:16:36.859 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-27 04:16:36.860 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-27 04:16:37.261 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-05-27 04:16:37.422 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-05-27 04:16:43.730 [warning] [Decorations] CAPPING events from decorations provider vscode.git 350
+2025-05-27 04:16:46.904 [warning] [Decorations] CAPPING events from decorations provider vscode.git 350
+2025-05-27 04:16:46.920 [warning] [Decorations] CAPPING events from decorations provider vscode.git 350
+2025-05-27 04:16:47.554 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-05-27 04:16:47.554 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-05-27 04:16:47.554 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:json'
+2025-05-27 04:16:47.554 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onLanguage:json'
+2025-05-27 04:16:47.680 [warning] [Decorations] CAPPING events from decorations provider vscode.git 350
+2025-05-27 04:16:48.042 [info] ExtensionService#_doActivateExtension vscode.markdown-language-features, startup: false, activationEvent: 'onLanguage:markdown'
+2025-05-27 04:16:48.856 [warning] [Decorations] CAPPING events from decorations provider vscode.git 350
+2025-05-27 04:16:49.577 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:javascript'
+2025-05-27 04:16:49.708 [warning] [Decorations] CAPPING events from decorations provider vscode.git 350
+2025-05-27 04:18:19.592 [warning] [Decorations] CAPPING events from decorations provider vscode.git 607
+2025-05-27 04:18:19.629 [warning] [Decorations] CAPPING events from decorations provider vscode.git 607
+2025-05-27 04:20:06.141 [warning] [Decorations] CAPPING events from decorations provider vscode.git 607
+2025-05-27 04:20:34.720 [warning] [Decorations] CAPPING events from decorations provider vscode.git 609
+2025-05-27 04:20:37.609 [warning] [Decorations] CAPPING events from decorations provider vscode.git 609
+2025-05-27 04:20:43.708 [warning] [Decorations] CAPPING events from decorations provider vscode.git 609
+2025-05-27 04:20:48.752 [warning] [Decorations] CAPPING events from decorations provider vscode.git 609
+2025-05-27 04:20:53.795 [warning] [Decorations] CAPPING events from decorations provider vscode.git 609
+2025-05-27 04:21:21.839 [warning] [Decorations] CAPPING events from decorations provider vscode.git 610
+2025-05-27 04:21:23.421 [warning] [Decorations] CAPPING events from decorations provider vscode.git 610
+2025-05-27 04:21:27.120 [warning] [Decorations] CAPPING events from decorations provider vscode.git 610
+2025-05-27 04:21:40.325 [warning] [Decorations] CAPPING events from decorations provider vscode.git 610
+2025-05-27 04:21:43.239 [warning] [Decorations] CAPPING events from decorations provider vscode.git 610
+2025-05-27 04:51:08.541 [error] Error: read ETIMEDOUT
+	at TCP.onStreamRead (node:internal/stream_base_commons:218:20)
+2025-05-27 05:10:08.066 [info] Extension host terminating: renderer disconnected for too long (2)
+2025-05-27 05:10:08.067 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-05-27 05:10:08.117 [error] ProxyResolver#resolveProxy undefined Canceled: Canceled
+	at al (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:7:1218)
+	at file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:29:117068
+	at Array.forEach (<anonymous>)
+	at f5.dispose (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:29:117008)
+	at TJ.terminate (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:123:10082)
+	at v2.terminate (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:124:1434)
+	at hs (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:225:5703)
+	at mx.a (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:225:2614)
+	at mx.h (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:28:75572)
+	at listOnTimeout (node:internal/timers:581:17)
+	at process.processTimers (node:internal/timers:519:7) 
+2025-05-27 05:10:08.117 [error] ProxyResolver#resolveProxy undefined Canceled: Canceled
+	at al (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:7:1218)
+	at file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:29:117068
+	at Array.forEach (<anonymous>)
+	at f5.dispose (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:29:117008)
+	at TJ.terminate (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:123:10082)
+	at v2.terminate (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:124:1434)
+	at hs (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:225:5703)
+	at mx.a (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:225:2614)
+	at mx.h (file:///usr/lib/code-server/lib/vscode/out/vs/workbench/api/node/extensionHostProcess.js:28:75572)
+	at listOnTimeout (node:internal/timers:581:17)
+	at process.processTimers (node:internal/timers:519:7) 
+2025-05-27 05:10:08.258 [info] Extension host with pid 16556 exiting with code 0

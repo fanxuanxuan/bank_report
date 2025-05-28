@@ -1,0 +1,4 @@
+2025-05-27 04:16:37.192 [info] Log level: Info
+2025-05-27 04:25:20.606 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for fanxuanxuan/bank_report/53f46d9143991efe88f93681fd6b239a9dcc1e4e: TypeError: Cannot read properties of null (reading 'author')
+2025-05-27 04:29:52.549 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for fanxuanxuan/bank_report/53f46d9143991efe88f93681fd6b239a9dcc1e4e: TypeError: Cannot read properties of null (reading 'author')
+2025-05-27 04:30:54.135 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for fanxuanxuan/bank_report/53f46d9143991efe88f93681fd6b239a9dcc1e4e: TypeError: Cannot read properties of null (reading 'author')

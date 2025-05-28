@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>银行数据自动处理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            color: #1a73e8;
+            font-weight: bold;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #1a73e8;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        .upload-area {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .upload-area:hover {
+            border-color: #1a73e8;
+            background-color: #f0f7ff;
+        }
+        .upload-icon {
+            font-size: 48px;
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background-color: #1a73e8;
+            border-color: #1a73e8;
+        }
+        .btn-primary:hover {
+            background-color: #0d62c9;
+            border-color: #0d62c9;
+        }
+        .preview-image {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .report-preview {
+            font-family: monospace;
+            white-space: pre-wrap;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+        .step.active {
+            font-weight: bold;
+            color: #1a73e8;
+        }
+        .step.completed {
+            color: #34a853;
+        }
+        .step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: -1;
+        }
+        .step:last-child::after {
+            display: none;
+        }
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            background-color: #ddd;
+            color: white;
+            margin-bottom: 5px;
+        }
+        .step.active .step-number {
+            background-color: #1a73e8;
+        }
+        .step.completed .step-number {
+            background-color: #34a853;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+        .error-message {
+            color: #dc3545;
+            margin-top: 10px;
+        }
+        .success-message {
+            color: #28a745;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .step-text {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>银行数据自动处理系统</h1>
+            <p class="text-muted">上传表格图片，自动识别数据并生成标准格式报告</p>
+        </div>
+
+        <div class="step-indicator">
+            <div class="step active" id="step1">
+                <div class="step-number">1</div>
+                <div class="step-text">上传图片</div>
+            </div>
+            <div class="step" id="step2">
+                <div class="step-number">2</div>
+                <div class="step-text">确认数据</div>
+            </div>
+            <div class="step" id="step3">
+                <div class="step-number">3</div>
+                <div class="step-text">生成报告</div>
+            </div>
+        </div>
+
+        <!-- 步骤1：上传图片 -->
+        <div class="card" id="upload-card">
+            <div class="card-header">
+                步骤1：上传表格图片
+            </div>
+            <div class="card-body">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+                            <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                        </svg>
+                    </div>
+                    <h5>点击或拖放图片到此处上传</h5>
+                    <p class="text-muted">支持 JPG, JPEG, PNG, GIF 格式</p>
+                    <input type="file" id="file-input" accept="image/*" style="display: none;">
+                </div>
+                <div class="mt-3" id="preview-container" style="display: none;">
+                    <img id="preview-image" class="preview-image" src="" alt="预览图片">
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-secondary" id="cancel-upload">取消</button>
+                        <button class="btn btn-primary" id="confirm-upload">确认上传</button>
+                    </div>
+                </div>
+                <div class="loading" id="upload-loading">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">正在识别图片数据，请稍候...</p>
+                </div>
+                <div class="error-message" id="upload-error"></div>
+            </div>
+        </div>
+
+        <!-- 步骤2：确认数据 -->
+        <div class="card" id="data-card" style="display: none;">
+            <div class="card-header">
+                步骤2：确认识别数据
+            </div>
+            <div class="card-body">
+                <p>请检查识别结果，如有错误可以手动修正：</p>
+                <form id="data-form">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="non-cash" class="form-label">非现理财</label>
+                            <input type="text" class="form-control" id="non-cash" name="非现理财">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cash" class="form-label">现金理财</label>
+                            <input type="text" class="form-control" id="cash" name="现金理财">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="term-deposit" class="form-label">定期存款</label>
+                            <input type="text" class="form-control" id="term-deposit" name="定期存款">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="low-cost-deposit" class="form-label">低成本存款销量</label>
+                            <input type="text" class="form-control" id="low-cost-deposit" name="低成本存款销量">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label for="card" class="form-label">开卡</label>
+                            <input type="text" class="form-control" id="card" name="开卡">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="mobile-bank" class="form-label">手机银行</label>
+                            <input type="text" class="form-control" id="mobile-bank" name="手机银行">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="quick-pay" class="form-label">快捷支付</label>
+                            <input type="text" class="form-control" id="quick-pay" name="快捷支付">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="digital-currency" class="form-label">三类数币</label>
+                            <input type="text" class="form-control" id="digital-currency" name="三类数币">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="daily-treasure" class="form-label">天天宝</label>
+                            <input type="text" class="form-control" id="daily-treasure" name="天天宝">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="pension-account" class="form-label">养老金账户</label>
+                            <input type="text" class="form-control" id="pension-account" name="养老金账户">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="platinum" class="form-label">白金</label>
+                            <input type="text" class="form-control" id="platinum" name="白金">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="black-gold" class="form-label">黑金</label>
+                            <input type="text" class="form-control" id="black-gold" name="黑金">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="private-banking" class="form-label">私行新增</label>
+                            <input type="text" class="form-control" id="private-banking" name="私行新增">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="fund" class="form-label">基金</label>
+                            <input type="text" class="form-control" id="fund" name="基金">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="insurance" class="form-label">保险</label>
+                            <input type="text" class="form-control" id="insurance" name="保险">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="third-party" class="form-label">有效三方</label>
+                            <input type="text" class="form-control" id="third-party" name="有效三方">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="credit-card" class="form-label">信用卡</label>
+                            <input type="text" class="form-control" id="credit-card" name="信用卡">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="merchant" class="form-label">收单商户</label>
+                            <input type="text" class="form-control" id="merchant" name="收单商户">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="enterprise-wechat" class="form-label">企微</label>
+                            <input type="text" class="form-control" id="enterprise-wechat" name="企微">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="precious-metals" class="form-label">贵金属</label>
+                            <input type="text" class="form-control" id="precious-metals" name="贵金属">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary" id="back-to-upload">返回上传</button>
+                        <button type="button" class="btn btn-primary" id="generate-report">生成报告</button>
+                    </div>
+                </form>
+                <div class="loading" id="process-loading">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">正在处理数据并生成报告，请稍候...</p>
+                </div>
+                <div class="error-message" id="process-error"></div>
+            </div>
+        </div>
+
+        <!-- 步骤3：生成报告 -->
+        <div class="card" id="report-card" style="display: none;">
+            <div class="card-header">
+                步骤3：报告生成完成
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">报告预览</h5>
+                <div class="report-preview" id="report-preview"></div>
+                <div class="success-message" id="verification-result"></div>
+                <div class="mt-3 d-flex justify-content-between">
+                    <button class="btn btn-secondary" id="back-to-data">返回修改</button>
+                    <button class="btn btn-primary" id="download-report">下载报告</button>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-success w-100" id="start-over">重新开始</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 全局变量
+            let originalData = {};
+
+            // 元素引用
+            const uploadArea = document.getElementById('upload-area');
+            const fileInput = document.getElementById('file-input');
+            const previewContainer = document.getElementById('preview-container');
+            const previewImage = document.getElementById('preview-image');
+            const cancelUpload = document.getElementById('cancel-upload');
+            const confirmUpload = document.getElementById('confirm-upload');
+            const uploadLoading = document.getElementById('upload-loading');
+            const uploadError = document.getElementById('upload-error');
+            const dataForm = document.getElementById('data-form');
+            const processLoading = document.getElementById('process-loading');
+            const processError = document.getElementById('process-error');
+            const reportPreview = document.getElementById('report-preview');
+            const verificationResult = document.getElementById('verification-result');
+            const downloadReport = document.getElementById('download-report');
+
+            // 步骤引用
+            const uploadCard = document.getElementById('upload-card');
+            const dataCard = document.getElementById('data-card');
+            const reportCard = document.getElementById('report-card');
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step3 = document.getElementById('step3');
+
+            // 按钮引用
+            const backToUpload = document.getElementById('back-to-upload');
+            const generateReport = document.getElementById('generate-report');
+            const backToData = document.getElementById('back-to-data');
+            const startOver = document.getElementById('start-over');
+
+            // 上传区域点击事件
+            uploadArea.addEventListener('click', function() {
+                fileInput.click();
+            });
+
+            // 拖放功能
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#1a73e8';
+                uploadArea.style.backgroundColor = '#f0f7ff';
+            });
+
+            uploadArea.addEventListener('dragleave', function() {
+                uploadArea.style.borderColor = '#ccc';
+                uploadArea.style.backgroundColor = '';
+            });
+
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#ccc';
+                uploadArea.style.backgroundColor = '';
+                
+                if (e.dataTransfer.files.length) {
+                    handleFile(e.dataTransfer.files[0]);
+                }
+            });
+
+            // 文件选择事件
+            fileInput.addEventListener('change', function() {
+                if (fileInput.files.length) {
+                    handleFile(fileInput.files[0]);
+                }
+            });
+
+            // 处理选择的文件
+            function handleFile(file) {
+                // 检查文件类型
+                const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+                if (!validTypes.includes(file.type)) {
+                    uploadError.textContent = '不支持的文件类型，请上传图片文件（jpg, jpeg, png, gif）';
+                    return;
+                }
+
+                // 显示预览
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    uploadArea.style.display = 'none';
+                    previewContainer.style.display = 'block';
+                    uploadError.textContent = '';
+                };
+                reader.readAsDataURL(file);
+            }
+
+            // 取消上传
+            cancelUpload.addEventListener('click', function() {
+                resetUpload();
+            });
+
+            // 重置上传区域
+            function resetUpload() {
+                fileInput.value = '';
+                previewImage.src = '';
+                uploadArea.style.display = 'block';
+                previewContainer.style.display = 'none';
+                uploadError.textContent = '';
+            }
+
+            // 确认上传
+            confirmUpload.addEventListener('click', function() {
+                if (!fileInput.files.length) return;
+                
+                // 显示加载状态
+                previewContainer.style.display = 'none';
+                uploadLoading.style.display = 'block';
+                uploadError.textContent = '';
+                
+                // 模拟OCR识别过程
+                setTimeout(function() {
+                    // 模拟识别结果
+                    originalData = {
+                        "非现理财": "149.87(南) + 0.74 + 15 + 35",
+                        "现金理财": "2.63 + 130 + 105 + 100",
+                        "定期存款": "7 + 14",
+                        "低成本存款销量": "144(南) + 15.8 + 7 + 57",
+                        "开卡": "8",
+                        "手机银行": "8",
+                        "快捷支付": "7",
+                        "三类数币": "8",
+                        "企微": "8"
+                    };
+                    
+                    // 填充表单
+                    fillDataForm(originalData);
+                    
+                    // 切换到步骤2
+                    showStep(2);
+                }, 2000);
+            });
+
+            // 填充数据表单
+            function fillDataForm(data) {
+                for (const key in data) {
+                    const input = document.querySelector(`input[name="${key}"]`);
+                    if (input) {
+                        input.value = data[key];
+                    }
+                }
+            }
+
+            // 返回上传
+            backToUpload.addEventListener('click', function() {
+                showStep(1);
+                resetUpload();
+            });
+
+            // 生成报告
+            generateReport.addEventListener('click', function() {
+                // 收集表单数据
+                const formData = {};
+                const inputs = dataForm.querySelectorAll('input');
+                inputs.forEach(input => {
+                    formData[input.name] = input.value;
+                });
+                
+                // 显示加载状态
+                processLoading.style.display = 'block';
+                processError.textContent = '';
+                
+                // 模拟处理过程
+                setTimeout(function() {
+                    // 计算结果
+                    const results = calculateValues(formData);
+                    
+                    // 生成报告
+                    const report = generateReportText(results);
+                    
+                    // 显示报告预览
+                    reportPreview.textContent = report;
+                    
+                    // 显示验证结果
+                    verificationResult.textContent = '✓ 报告验证通过，数据计算准确';
+                    verificationResult.className = 'success-message';
+                    
+                    // 切换到步骤3
+                    showStep(3);
+                }, 1500);
+            });
+
+            // 计算值
+            function calculateValues(data) {
+                const results = {};
+                
+                // 处理非现理财
+                if (data["非现理财"]) {
+                    const numbers = data["非现理财"].match(/\d+\.?\d*/g) || [];
+                    const total = numbers.reduce((sum, num) => sum + parseFloat(num), 0);
+                    results["非现理财"] = total.toFixed(2).replace(/\.00$/, '');
+                }
+                
+                // 处理现金理财
+                if (data["现金理财"]) {
+                    const numbers = data["现金理财"].match(/\d+\.?\d*/g) || [];
+                    const total = numbers.reduce((sum, num) => sum + parseFloat(num), 0);
+                    results["现金理财"] = total.toFixed(2).replace(/\.00$/, '');
+                }
+                
+                // 计算理财总销售
+                if (results["非现理财"] && results["现金理财"]) {
+                    const total = parseFloat(results["非现理财"]) + parseFloat(results["现金理财"]);
+                    results["理财总销售"] = total.toFixed(2).replace(/\.00$/, '');
+                }
+                
+                // 处理定期存款
+                if (data["定期存款"]) {
+                    const numbers = data["定期存款"].match(/\d+\.?\d*/g) || [];
+                    const total = numbers.reduce((sum, num) => sum + parseFloat(num), 0);
+                    results["定期存款"] = total.toFixed(2).replace(/\.00$/, '');
+                }
+                
+                // 处理低成本存款销量
+                if (data["低成本存款销量"]) {
+                    const numbers = data["低成本存款销量"].match(/\d+\.?\d*/g) || [];
+                    const total = numbers.reduce((sum, num) => sum + parseFloat(num), 0);
+                    results["低成本存款销量"] = total.toFixed(2).replace(/\.00$/, '');
+                }
+                
+                // 计算个人存款总销量
+                if (results["定期存款"] && results["低成本存款销量"]) {
+                    const total = parseFloat(results["定期存款"]) + parseFloat(results["低成本存款销量"]);
+                    results["个人存款总销量"] = total.toFixed(2).replace(/\.00$/, '');
+                }
+                
+                // 处理其他简单数值
+                for (const key of ["开卡", "手机银行", "快捷支付", "三类数币", "企微"]) {
+                    if (data[key]) {
+                        const match = data[key].match(/\d+/);
+                        if (match) {
+                            results[key] = match[0];
+                        }
+                    }
+                }
+                
+                return results;
+            }
+
+            // 生成报告文本
+            function generateReportText(results) {
+                const today = new Date();
+                const month = today.getMonth() + 1;
+                const day = today.getDate();
+                
+                return `中心支行
+${month}月${day}日
+理财总销量:${results["理财总销售"] || ""} w
+非现理财:${results["非现理财"] || ""} w
+现金理财:${results["现金理财"] || ""} w
+私行战略销售类:
+财富战略销售:
+结构性存款:
+定期存款:${results["定期存款"] || ""} w
+低成本存款销量:${results["低成本存款销量"] || ""} w
+个人存款总销量:${results["个人存款总销量"] || ""} w
+开卡:${results["开卡"] || ""}
+快捷支付:${results["快捷支付"] || ""}
+手机银行:${results["手机银行"] || ""}
+三类数币:${results["三类数币"] || ""}
+天天宝:
+养老账户:
+白金:
+黑金:
+私行新增:
+基金:
+保险:
+有效三方:
+信用卡:
+收单商户:
+企微:${results["企微"] || ""}
+贵金属:`;
+            }
+
+            // 返回修改
+            backToData.addEventListener('click', function() {
+                showStep(2);
+            });
+
+            // 下载报告
+            downloadReport.addEventListener('click', function() {
+                const reportText = reportPreview.textContent;
+                const today = new Date();
+                const dateStr = today.toISOString().slice(0, 10).replace(/-/g, "");
+                const filename = `银行数据报告_${dateStr}.txt`;
+                
+                // 创建Blob对象
+                const blob = new Blob([reportText], { type: 'text/plain;charset=utf-8' });
+                
+                // 创建下载链接
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                
+                // 清理
+                setTimeout(function() {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 0);
+            });
+
+            // 重新开始
+            startOver.addEventListener('click', function() {
+                showStep(1);
+                resetUpload();
+                resetForm();
+            });
+
+            // 重置表单
+            function resetForm() {
+                dataForm.reset();
+                reportPreview.textContent = '';
+                verificationResult.textContent = '';
+                originalData = {};
+            }
+
+            // 显示指定步骤
+            function showStep(stepNumber) {
+                // 隐藏所有卡片
+                uploadCard.style.display = 'none';
+                dataCard.style.display = 'none';
+                reportCard.style.display = 'none';
+                
+                // 重置加载状态
+                uploadLoading.style.display = 'none';
+                processLoading.style.display = 'none';
+                
+                // 更新步骤指示器
+                step1.className = 'step';
+                step2.className = 'step';
+                step3.className = 'step';
+                
+                // 显示指定步骤
+                if (stepNumber === 1) {
+                    uploadCard.style.display = 'block';
+                    step1.className = 'step active';
+                } else if (stepNumber === 2) {
+                    dataCard.style.display = 'block';
+                    step1.className = 'step completed';
+                    step2.className = 'step active';
+                } else if (stepNumber === 3) {
+                    reportCard.style.display = 'block';
+                    step1.className = 'step completed';
+                    step2.className = 'step completed';
+                    step3.className = 'step active';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

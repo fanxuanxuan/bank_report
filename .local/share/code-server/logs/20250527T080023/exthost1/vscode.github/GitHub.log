@@ -1,0 +1,4 @@
+2025-05-27 04:00:41.494 [info] Log level: Info
+2025-05-27 04:00:43.351 [warning] [GitHubBranchProtectionProvider][updateRepositoryBranchProtection] Failed to update repository branch protection: No GitHub authentication session available.
+2025-05-27 04:04:31.966 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_loadAssignableUsers] Failed to load assignable user(s) for nvm-sh/nvm: Error: No GitHub authentication session available.
+2025-05-27 04:14:48.442 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for fanxuanxuan/bank_report_web_app/1bd37a3740f6509dcb27daf4292456a4c0dd6f20: TypeError: Cannot read properties of null (reading 'author')
