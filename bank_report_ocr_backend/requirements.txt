@@ -6,3 +6,7 @@ itsdangerous==2.2.0
 blinker==1.9.0
 click==8.2.1
 requests==2.32.3
+python-dotenv==0.21.0
+pytesseract==0.3.13
+Image==1.16.0
+pillow==10.4.0

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>银行数据自动处理系统</title>
+    <title>数据自动处理系统</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -167,7 +167,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>银行数据自动处理系统</h1>
+            <h1>数据自动处理系统</h1>
             <p class="text-muted">上传表格图片，自动识别数据并生成标准格式报告</p>
         </div>
 
@@ -231,99 +231,99 @@
                     <input type="hidden" id="image-hash" name="image_hash">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="non-cash" class="form-label">非现理财 <span class="memory-badge" id="non-cash-memory">已记忆</span></label>
+                            <label for="non-cash" class="form-label">非现理财</label><label id="non-cash-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="non-cash" name="非现理财" data-field="非现理财">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="cash" class="form-label">现金理财 <span class="memory-badge" id="cash-memory">已记忆</span></label>
+                            <label for="cash" class="form-label">现金理财</label><label id="cash-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="cash" name="现金理财" data-field="现金理财">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="term-deposit" class="form-label">定期存款 <span class="memory-badge" id="term-deposit-memory">已记忆</span></label>
+                            <label for="term-deposit" class="form-label">定期存款</label><label id="term-deposit-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="term-deposit" name="定期存款" data-field="定期存款">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="low-cost-deposit" class="form-label">低成本存款销量 <span class="memory-badge" id="low-cost-deposit-memory">已记忆</span></label>
+                            <label for="low-cost-deposit" class="form-label">低成本存款销量</label><label id="low-cost-deposit-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="low-cost-deposit" name="低成本存款销量" data-field="低成本存款销量">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3 mb-3">
-                            <label for="card" class="form-label">开卡 <span class="memory-badge" id="card-memory">已记忆</span></label>
+                            <label for="card" class="form-label">开卡</label><label id="card-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="card" name="开卡" data-field="开卡">
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="mobile-bank" class="form-label">手机银行 <span class="memory-badge" id="mobile-bank-memory">已记忆</span></label>
+                            <label for="mobile-bank" class="form-label">手机银行</label><label id="mobile-bank-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="mobile-bank" name="手机银行" data-field="手机银行">
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="quick-pay" class="form-label">快捷支付 <span class="memory-badge" id="quick-pay-memory">已记忆</span></label>
+                            <label for="quick-pay" class="form-label">快捷支付</label><label id="quick-pay-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="quick-pay" name="快捷支付" data-field="快捷支付">
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="digital-currency" class="form-label">三类数币 <span class="memory-badge" id="digital-currency-memory">已记忆</span></label>
+                            <label for="digital-currency" class="form-label">三类数币</label><label id="digital-currency-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="digital-currency" name="三类数币" data-field="三类数币">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="daily-treasure" class="form-label">天天宝 <span class="memory-badge" id="daily-treasure-memory">已记忆</span></label>
+                            <label for="daily-treasure" class="form-label">天天宝</label><label id="daily-treasure-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="daily-treasure" name="天天宝" data-field="天天宝">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="pension-account" class="form-label">养老金账户 <span class="memory-badge" id="pension-account-memory">已记忆</span></label>
+                            <label for="pension-account" class="form-label">养老金账户</label><label id="pension-account-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="pension-account" name="养老金账户" data-field="养老金账户">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="platinum" class="form-label">白金 <span class="memory-badge" id="platinum-memory">已记忆</span></label>
+                            <label for="platinum" class="form-label">白金</label><label id="platinum-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="platinum" name="白金" data-field="白金">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="black-gold" class="form-label">黑金 <span class="memory-badge" id="black-gold-memory">已记忆</span></label>
+                            <label for="black-gold" class="form-label">黑金</label><label id="black-gold-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="black-gold" name="黑金" data-field="黑金">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="private-banking" class="form-label">私行新增 <span class="memory-badge" id="private-banking-memory">已记忆</span></label>
+                            <label for="private-banking" class="form-label">私行新增</label><label id="private-banking-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="private-banking" name="私行新增" data-field="私行新增">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="fund" class="form-label">基金 <span class="memory-badge" id="fund-memory">已记忆</span></label>
+                            <label for="fund" class="form-label">基金</label><label id="fund-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="fund" name="基金" data-field="基金">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="insurance" class="form-label">保险 <span class="memory-badge" id="insurance-memory">已记忆</span></label>
+                            <label for="insurance" class="form-label">保险</label><label id="insurance-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="insurance" name="保险" data-field="保险">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="third-party" class="form-label">有效三方 <span class="memory-badge" id="third-party-memory">已记忆</span></label>
+                            <label for="third-party" class="form-label">有效三方</label><label id="third-party-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="third-party" name="有效三方" data-field="有效三方">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="credit-card" class="form-label">信用卡 <span class="memory-badge" id="credit-card-memory">已记忆</span></label>
+                            <label for="credit-card" class="form-label">信用卡</label><label id="credit-card-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="credit-card" name="信用卡" data-field="信用卡">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="merchant" class="form-label">收单商户 <span class="memory-badge" id="merchant-memory">已记忆</span></label>
+                            <label for="merchant" class="form-label">收单商户</label><label id="merchant-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="merchant" name="收单商户" data-field="收单商户">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="enterprise-wechat" class="form-label">企微 <span class="memory-badge" id="enterprise-wechat-memory">已记忆</span></label>
+                            <label for="enterprise-wechat" class="form-label">企微</label><label id="enterprise-wechat-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="enterprise-wechat" name="企微" data-field="企微">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="precious-metals" class="form-label">贵金属 <span class="memory-badge" id="precious-metals-memory">已记忆</span></label>
+                            <label for="precious-metals" class="form-label">贵金属</label><label id="precious-metals-calc" style="float: right; color: red"></label>
                             <input type="text" class="form-control" id="precious-metals" name="贵金属" data-field="贵金属">
                         </div>
                     </div>
@@ -349,7 +349,7 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">报告预览</h5>
-                <div class="report-preview" id="report-preview"></div>
+                <div class="report-preview" id="report-preview" contenteditable="true"></div>
                 <div class="success-message" id="verification-result"></div>
                 <div class="mt-3 d-flex justify-content-between">
                     <button class="btn btn-secondary" id="back-to-data">返回修改</button>
@@ -529,6 +529,8 @@
                         input.value = data[key];
                     }
                 }
+                // 初始化计算值
+                initializeCalcValues();
             }
 
             // 显示记忆标记
@@ -564,9 +566,22 @@
                 resetUpload();
             });
 
-            // 监听输入变化，保存校正
+            // 计算输入值的总和
+            function calculateTotal(value) {
+                // 提取所有数字
+                const numbers = value.match(/(\d+\.?\d*)/g) || [];
+                if (numbers.length > 0) {
+                    // 计算总和
+                    const total = numbers.reduce((sum, num) => sum + parseFloat(num), 0);
+                    // 格式化结果：如果是整数则不显示小数点，否则保留两位小数并去除尾随0
+                    return Number.isInteger(total) ? total.toString() : total.toFixed(2).replace(/\.?0+$/, '');
+                }
+                return '0';
+            }
+
+            // 监听输入变化，保存校正和更新计算值
             dataForm.querySelectorAll('input[data-field]').forEach(input => {
-                input.addEventListener('change', function() {
+                input.addEventListener('input', function() {
                     const field = this.getAttribute('data-field');
                     const value = this.value;
                     
@@ -574,8 +589,29 @@
                     if (originalData[field] !== value) {
                         saveCorrection(currentImageHash, field, value);
                     }
+
+                    // 更新计算值
+                    const calcId = this.id + '-calc';
+                    const calcSpan = document.getElementById(calcId);
+                    if (calcSpan) {
+                        const total = calculateTotal(value);
+                        calcSpan.textContent = `${total}`;
+                    }
                 });
             });
+
+            // 初始化计算值显示
+            function initializeCalcValues() {
+                dataForm.querySelectorAll('input[data-field]').forEach(input => {
+                    const value = input.value;
+                    const calcId = input.id + '-calc';
+                    const calcSpan = document.getElementById(calcId);
+                    if (calcSpan) {
+                        const total = calculateTotal(value);
+                        calcSpan.textContent = `${total}`;
+                    }
+                });
+            }
 
             // 保存校正
             function saveCorrection(imageHash, field, value) {
@@ -709,6 +745,11 @@
                 document.querySelectorAll('.memory-badge').forEach(badge => {
                     badge.style.display = 'none';
                 });
+                // 清除计算值显示
+                const calcSpan = document.getElementById('non-cash-calc');
+                if (calcSpan) {
+                    calcSpan.textContent = '';
+                }
             }
 
             // 显示指定步骤
@@ -735,6 +776,8 @@
                     dataCard.style.display = 'block';
                     step1.className = 'step completed';
                     step2.className = 'step active';
+                    // 初始化计算值
+                    initializeCalcValues();
                 } else if (stepNumber === 3) {
                     reportCard.style.display = 'block';
                     step1.className = 'step completed';

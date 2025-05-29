@@ -8,6 +8,8 @@ import base64
 from flask import Flask, request, jsonify, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 import requests
+import pytesseract
+from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))  # DON'T CHANGE THIS !!!
 
@@ -48,17 +50,99 @@ def get_cloud_ocr_result(image_path):
     # return response.json()
     
     # 模拟数据
-    return {
-        "非现理财": "149.87(南) + 0.74 + 15 + 35",
-        "现金理财": "2.63 + 130 + 105 + 100",
-        "定期存款": "7 + 14",
-        "低成本存款销量": "144(南) + 15.8 + 7 + 57",
-        "开卡": "8",
-        "手机银行": "8",
-        "快捷支付": "7",
-        "三类数币": "8",
-        "企微": "8"
+    # return {
+    #     "非现理财": "149.87(南) + 0.74 + 15 + 35",
+    #     "现金理财": "2.63 + 130 + 105 + 100",
+    #     "定期存款": "7 + 14",
+    #     "低成本存款销量": "144(南) + 15.8 + 7 + 57",
+    #     "开卡": "8",
+    #     "手机银行": "8",
+    #     "快捷支付": "7",
+    #     "三类数币": "8",
+    #     "企微": "8"
+    # }
+
+    """
+    从图片中提取表格数据
+    """
+    # 使用pytesseract进行OCR识别
+    custom_config = r'--oem 3 --psm 6'
+    try:
+        text = pytesseract.image_to_string(Image.open(image_path), lang='chi_sim', config=custom_config)
+    except Exception as e:
+        print(f"OCR识别失败: {e}")
+        return None
+    
+    # 初始化数据字典
+    data = {
+        "理财总销售": "",
+        "非现理财": "",
+        "现金理财": "",
+        "合格投资者类": "",
+        "结构性存款": "",
+        "定期存款": "",
+        "低成本存款销量": "",
+        "个人存款总销量": "",
+        "开卡": "",
+        "手机银行": "",
+        "快捷支付": "",
+        "三类数币": "",
+        "天天宝": "",
+        "养老金账户": "",
+        "白金": "",
+        "黑金": "",
+        "私行新增": "",
+        "基金": "",
+        "保险": "",
+        "信用卡": "",
+        "企微": ""
     }
+    
+    # 从图片中提取数据
+    lines = text.split('\n')
+    current_key = None
+    
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        
+        # 尝试匹配键值对
+        for key in data.keys():
+            if key in line:
+                parts = line.split(key)
+                if len(parts) > 1:
+                    data[key] = parts[1].strip()
+                    current_key = key
+                    break
+                else:
+                    current_key = key
+        
+        # 如果当前行不包含键但有值，且我们有一个当前键，则将值添加到当前键
+        if current_key and line and current_key not in line:
+            if not data[current_key]:
+                data[current_key] = line
+            else:
+                data[current_key] += " " + line
+    
+    # 如果OCR识别不准确，可以手动检查并修正数据
+    print("提取的原始数据:")
+    for key, value in data.items():
+        if value:
+            print(f"{key}: {value}")
+    
+    # 询问用户是否需要手动修正数据
+    correction = input("\n是否需要手动修正数据? (y/n): ")
+    if correction.lower() == 'y':
+        for key in data.keys():
+            if key in ["理财总销售", "个人存款总销量"]:
+                continue  # 这些是计算得出的，不需要手动输入
+            current_value = data[key]
+            new_value = input(f"{key} [{current_value}]: ")
+            if new_value:
+                data[key] = new_value
+    
+    return data
 
 def apply_corrections(ocr_result, image_hash):
     """
