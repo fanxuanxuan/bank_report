@@ -1,0 +1,22 @@
+2025-05-30 00:24:11.442 [info] Extension host with pid 146450 started
+2025-05-30 00:24:11.442 [error] Error: EEXIST: file already exists, open '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock'
+2025-05-30 00:24:11.442 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-30 00:24:11.446 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': The lock does not look stale, elapsed: 439 ms, giving up.
+2025-05-30 00:24:11.453 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': Lock acquired.
+2025-05-30 00:24:11.950 [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
+2025-05-30 00:24:11.951 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-05-30 00:24:11.952 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-30 00:24:11.952 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-30 00:24:11.952 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-30 00:24:12.954 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-30 00:24:13.322 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-30 00:24:13.323 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-30 00:24:13.854 [info] Eager extensions activated
+2025-05-30 00:24:13.854 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-30 00:24:13.855 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-30 00:24:14.182 [info] ExtensionService#_doActivateExtension vscode.tunnel-forwarding, startup: false, activationEvent: 'onTunnel'
+2025-05-30 00:24:14.363 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-05-30 00:26:04.237 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'
+2025-05-30 00:26:11.986 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-05-30 02:54:48.186 [error] Error: read ETIMEDOUT
+	at TCP.onStreamRead (node:internal/stream_base_commons:218:20)

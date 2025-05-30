@@ -13,3 +13,8 @@
 2025-05-28 04:50:40.052 [warning] [Decorations] CAPPING events from decorations provider vscode.git 2671
 2025-05-28 04:50:40.088 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
 2025-05-28 04:50:40.503 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-05-28 05:10:08.118 [error] Error: read ETIMEDOUT
+	at TCP.onStreamRead (node:internal/stream_base_commons:218:20)
+2025-05-29 00:17:42.844 [info] Extension host terminating: renderer disconnected for too long (2)
+2025-05-29 00:17:42.844 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-05-29 00:17:42.874 [info] Extension host with pid 70213 exiting with code 0

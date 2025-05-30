@@ -1,0 +1,45 @@
+2025-05-30 02:15:59.392 [info] Extension host with pid 151260 started
+2025-05-30 02:15:59.392 [error] Error: EEXIST: file already exists, open '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock'
+2025-05-30 02:15:59.392 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-30 02:15:59.397 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': The lock does not look stale, elapsed: 625 ms, giving up.
+2025-05-30 02:15:59.398 [error] Error: EEXIST: file already exists, open '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock'
+2025-05-30 02:15:59.398 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-30 02:15:59.398 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-1/vscode.lock': The lock does not look stale, elapsed: 36 ms, giving up.
+2025-05-30 02:15:59.398 [error] Error: EEXIST: file already exists, open '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-2/vscode.lock'
+2025-05-30 02:15:59.399 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-2/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-30 02:15:59.399 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-2/vscode.lock': The lock does not look stale, elapsed: 629 ms, giving up.
+2025-05-30 02:15:59.401 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82-3/vscode.lock': Lock acquired.
+2025-05-30 02:16:00.232 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-30 02:16:00.233 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-30 02:16:00.233 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-30 02:16:00.233 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-05-30 02:16:00.233 [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
+2025-05-30 02:16:01.235 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-30 02:16:01.240 [info] ExtensionService#_doActivateExtension vscode.tunnel-forwarding, startup: false, activationEvent: 'onTunnel'
+2025-05-30 02:16:01.612 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-30 02:16:01.613 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-30 02:16:02.146 [info] Eager extensions activated
+2025-05-30 02:16:02.147 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-30 02:16:02.147 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-30 02:16:02.719 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-05-30 02:22:55.870 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:markdown'
+2025-05-30 02:22:55.870 [info] ExtensionService#_doActivateExtension vscode.markdown-language-features, startup: false, activationEvent: 'onLanguage:markdown'
+2025-05-30 02:22:57.020 [info] ExtensionService#_doActivateExtension vscode.markdown-math, startup: false, activationEvent: 'api', root cause: vscode.markdown-language-features
+2025-05-30 02:54:24.479 [info] Extension host with pid 157988 started
+2025-05-30 02:54:24.482 [info] Lock '/home/ubuntu/.local/share/code-server/User/workspaceStorage/55104b82/vscode.lock': Lock acquired.
+2025-05-30 02:54:24.947 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-05-30 02:54:24.949 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-30 02:54:24.949 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-30 02:54:24.949 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-30 02:54:25.761 [info] ExtensionService#_doActivateExtension vscode.tunnel-forwarding, startup: false, activationEvent: 'onTunnel'
+2025-05-30 02:54:26.086 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-30 02:54:26.538 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-30 02:54:26.539 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-30 02:54:27.058 [info] Eager extensions activated
+2025-05-30 02:54:27.059 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-30 02:54:27.059 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-30 02:54:27.624 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-05-30 02:54:37.506 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'
+2025-05-30 02:54:45.347 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-05-30 03:10:56.668 [error] Error: read ETIMEDOUT
+	at TCP.onStreamRead (node:internal/stream_base_commons:218:20)
